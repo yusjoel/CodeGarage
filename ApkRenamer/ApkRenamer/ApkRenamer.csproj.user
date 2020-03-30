@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartArguments>"D:\360Downloads\Gold Mine Sweeper%28com.darkd.GoldMineSweeper%29%281.1.01%29%287%29.apk" "|application-name|%28|package-name|%29%28|version-name|%29"</StartArguments>
+  </PropertyGroup>
+</Project>
