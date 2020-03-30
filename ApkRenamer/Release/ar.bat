@@ -1,0 +1,1 @@
+ApkRenamer.exe %1 "|name|(|package-name|)(|version-name|)(|version-code|)"
