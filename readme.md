@@ -13,3 +13,6 @@
 
 ## UnityPackageUnpacker
 解压UnityPackage文件
+
+## UnityPackageRenamer
+重命名并归档UnityPackage文件
