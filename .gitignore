@@ -3,3 +3,4 @@ _ReSharper.Caches
 packages
 bin
 obj
+*.user

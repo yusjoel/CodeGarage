@@ -10,3 +10,6 @@
 
 ## c2utf8
 检查文本文件的格式, 如果不是UTF8, 自动转成UTF8
+
+## UnityPackageUnpacker
+解压UnityPackage文件
