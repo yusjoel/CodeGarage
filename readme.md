@@ -16,3 +16,7 @@
 
 ## UnityPackageRenamer
 重命名并归档UnityPackage文件
+
+# 收集别人的代码
+## Observer Pattern
+观察者模式
