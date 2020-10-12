@@ -5,6 +5,9 @@
 ## KaprekarRoutineSolver
 求解卡普雷卡尔常数, 可以指定位数, 进制
 
+## KrpanoTool
+下载全景图的图块, 自动合并, 最后转成球形映射贴图. (注:只是调用krpano的命令行程序, 还是需要注册krpano)
+
 ## Translator
 对某个文档中的专业术语进行查找替换
 
