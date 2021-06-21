@@ -5,3 +5,5 @@ bin
 obj
 *.user
 *.suo
+*.DotSettings
+launchSettings.json

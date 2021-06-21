@@ -14,11 +14,14 @@
 ## Translator
 对某个文档中的专业术语进行查找替换
 
+## UnityPackageRenamer
+重命名并归档UnityPackage文件
+
 ## UnityPackageUnpacker
 解压UnityPackage文件
 
-## UnityPackageRenamer
-重命名并归档UnityPackage文件
+## UnityReleaseNotesTool
+抓取Unity What's New, 上传到https://github.com/yusjoel/UnityReleaseNotes
 
 ## UniversalCharDet
 ### c2utf8
