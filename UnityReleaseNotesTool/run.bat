@@ -1,35 +1,40 @@
 @echo off
+setlocal
+
 set CurrentPath=%~dp0
+set ReleaseNotesFolder=E:\Workspace\_MyRepos\UnityReleaseNotes
+set Exe=%CurrentPath%bin\Debug\net9.0\UnityReleaseNotesTool.exe
 
-set DownloadFolder="D:\Unity\Workspace\UnityReleaseNotes-Tool\download"
-set ReleaseNotesFolder="d:\Unity\Workspace\UnityReleaseNotes"
-set WhatsNewUrl="https://unity3d.com/unity/whats-new/2020.1.3"
+echo === Sync Unity release notes into %ReleaseNotesFolder% ===
+echo.
 
-echo bin\UnityReleaseNotesTool.exe %DownloadFolder% %ReleaseNotesFolder% %WhatsNewUrl%
-bin\UnityReleaseNotesTool.exe %DownloadFolder% %ReleaseNotesFolder% %WhatsNewUrl%
-
+rem --archive-html moves the original HTML into Backup\ (main tree keeps Markdown only).
+"%Exe%" "%ReleaseNotesFolder%" --archive-html
 if %ERRORLEVEL% NEQ 0 (
-    echo 提取版本信息失败
-	goto Failed
+    echo.
+    echo FAILED: grabber returned a non-zero exit code.
+    goto End
 )
 
 echo.
+echo === Commit and push ===
 echo.
 
-:Git
+cd /d "%ReleaseNotesFolder%"
 
-cd %ReleaseNotesFolder%
+git add -A
 
-git status
-git ls-files --others> %CurrentPath%other-files.txt
-git add *
-git commit --file=%CurrentPath%other-files.txt
+git status --short
+
+git commit -m "Update Unity release notes (%DATE%)" --quiet
+if %ERRORLEVEL% NEQ 0 (
+    echo Nothing to commit, or commit failed.
+    goto End
+)
+
 git push
 
-:Failed
-
-:Success
-
-cd %CurrentPath%
-
+:End
+echo.
+cd /d "%CurrentPath%"
 pause

@@ -14,11 +14,10 @@ namespace UnityReleaseNotesTool
                 .SelectMany(i => Regex.Matches(selector(i), @"\d+").Select(m => (int?) m.Value.Length))
                 .Max() ?? 0;
 
-            return source.OrderByDescending(i =>
-            {
-                string replace = Regex.Replace(selector(i), @"\d+", m => m.Value.PadLeft(max, '0'));
-                return replace;
-            });
+            // 用 Ordinal 比较：默认比较器跟随当前区域设置，在中文 Windows 上没必要冒这个险。
+            return source.OrderByDescending(
+                i => Regex.Replace(selector(i), @"\d+", m => m.Value.PadLeft(max, '0')),
+                StringComparer.Ordinal);
         }
     }
 }
